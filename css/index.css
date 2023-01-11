@@ -1,0 +1,53 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.gameboard {
+    margin: 0 auto;
+    max-width: 300px;
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    grid-template-rows: 33% 33% 33%;
+}
+
+.title {
+    border: 1px solid white;
+    min-width: 100px;
+    min-height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+}
+
+.player-circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.player-position, .player-option {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.btn {
+    border: none;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+    font-size: 15px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.player-option {
+     font-family: 'Yanone Kaffeesatz', sans-serif;
+     font-weight: 700;
+     font-size: 20px;
+}
+
