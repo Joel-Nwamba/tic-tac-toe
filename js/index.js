@@ -6,6 +6,7 @@ const Gameboard = (() => {
     const playerOne = playerInformation("player-1", "X");
     const playerTwo = playerInformation("player-2", "O");
     let currentPlayer = playerOne.marker
+    let playerTurn = playerTwo.marker
     // grab current board
     const boards = document.querySelectorAll(".cell");
     const winningCondition = [
@@ -18,16 +19,17 @@ const Gameboard = (() => {
         [0, 4, 8],
         [2, 4, 6]
     ];
-
-    function checkWinner() {
-        for(let i =0; i < winningCondition.length; i++) {
-            if(winningCondition[i] === playerOne.marker) {
-                gameboard[0]
-            } else if(winningCondition[i] === playerTwo.marker) {
-                gameboard[1]
-            } else {
-                // It's a tie
+    for(let i =0; i < winningCondition.length; i++) {
+        let winCombo = winningCondition[i];
+        let isWin = true;
+        for(let j= 0; j < winCombo.length; j++) {
+            let cellInfo = winCombo[j];
+            if(gameboard[cellInfo] !== playerTurn) {
+                isWin = false;
             }
+        }
+        if(isWin) {
+            return winCombo;
         }
     }
     boards.forEach((board) => {
@@ -40,9 +42,9 @@ const Gameboard = (() => {
                     currentPlayer = playerOne.marker
                 }
             }
-            if(board.textContent !== "") {
-                preventDefault()
-            }
+            // if(board.textContent !== "") {
+            //     preventDefault()
+            // }
         })
     })
 })();
